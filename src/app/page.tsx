@@ -1,31 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useMemo } from "react";
-
-interface SplineSceneProps {
-  scene: string;
-  className?: string;
-}
-
-function SplineScene({ scene, className }: SplineSceneProps) {
-  const Spline = useMemo(
-    () =>
-      dynamic(() => import("@splinetool/react-spline"), {
-        ssr: false,
-        loading: () => (
-          <div className="flex h-[60vh] w-full items-center justify-center">
-            <span className="loader" />
-          </div>
-        ),
-      }),
-    []
-  );
-
-  return (
-    <Spline scene={scene} className={className} />
-  );
-}
+import { SplineScene } from "./SplineScene";
 
 const SCENE_URL =
   process.env.NEXT_PUBLIC_SPLINE_SCENE ||
