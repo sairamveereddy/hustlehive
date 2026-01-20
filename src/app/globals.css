@@ -45,3 +45,19 @@ a {
     transform: rotate(360deg);
   }
 }
+
+@keyframes spotlight {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-10%) scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 8s ease-in-out infinite;
+}
